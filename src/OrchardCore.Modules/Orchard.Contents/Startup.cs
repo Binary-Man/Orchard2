@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Modules;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.DependencyInjection;
 using Orchard.ContentManagement;
+using Orchard.ContentManagement.Api;
 using Orchard.ContentManagement.Display;
 using Orchard.ContentManagement.Display.ContentDisplay;
 using Orchard.ContentManagement.Handlers;
@@ -33,6 +34,7 @@ namespace Orchard.Contents
         {
             services.AddContentManagement();
             services.AddContentManagementDisplay();
+            services.AddApiContentManagementDisplay();
             services.AddScoped<IPermissionProvider, Permissions>();
             services.AddScoped<IShapeTableProvider, Shapes>();
             services.AddScoped<INavigationProvider, AdminMenu>();
@@ -111,7 +113,19 @@ namespace Orchard.Contents
                 defaults: new { controller = "Admin", action = "List" }
             );
 
+            routes.MapAreaRoute(
+                name: "Api_Self_Route",
+                areaName: "Orchard.Contents",
+                template: "Api/ContentItems/{contentItemId}",
+                defaults: new { controller = "Api", action = "Get" }
+            );
 
+            routes.MapAreaRoute(
+                name: "Api_Self_Route_Version",
+                areaName: "Orchard.Contents",
+                template: "Api/ContentItems/{contentItemId}/{versionOptions}",
+                defaults: new { controller = "Api", action = "GetByVersion" }
+            );
         }
     }
 }

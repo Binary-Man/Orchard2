@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\OrchardCore\Orchard.ContentManagement.ApiDisplay\Orchard.ContentManagement.Api.csproj" />
     <ProjectReference Include="..\..\OrchardCore\OrchardCore.AsModule\OrchardCore.AsModule.csproj" />
     <ProjectReference Include="..\..\OrchardCore\Orchard.Mvc.Abstractions\Orchard.Mvc.Abstractions.csproj" />
     <ProjectReference Include="..\..\OrchardCore\Orchard.ContentManagement\Orchard.ContentManagement.csproj" />
@@ -22,6 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="JsonApiSerializer" Version="0.9.16" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="1.1.2" />
   </ItemGroup>
 
