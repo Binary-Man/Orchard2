@@ -273,7 +273,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Orchard.Diagnostics.Elm", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Orchard.Templates", "src\OrchardCore.Modules\Orchard.Templates\Orchard.Templates.csproj", "{AE8C2F86-C50F-4493-9BC2-6930D34E5E98}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Orchard.ContentManagement.Api", "src\OrchardCore\Orchard.ContentManagement.ApiDisplay\Orchard.ContentManagement.Api.csproj", "{CCA65DED-A8AD-476F-804E-138B800FB8BC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Orchard.JsonApi", "src\OrchardCore\Orchard.ContentManagement.ApiDisplay\Orchard.JsonApi.csproj", "{CCA65DED-A8AD-476F-804E-138B800FB8BC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
