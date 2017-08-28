@@ -1,9 +1,10 @@
-﻿using Orchard.ContentManagement.Handlers;
+using Orchard.ContentManagement.Handlers;
 using Orchard.Menu.Models;
 
 namespace Orchard.Menu.Handlers
 {
-    public class MenuContentHandler : ContentHandlerBase
+    public class 
+        MenuContentHandler : ContentHandlerBase
     {
         public override void Activating(ActivatingContentContext context)
         {

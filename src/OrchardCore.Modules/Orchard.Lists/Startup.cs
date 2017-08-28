@@ -8,9 +8,9 @@ using Orchard.ContentManagement.Display.ContentDisplay;
 using Orchard.ContentManagement.Handlers;
 using Orchard.Contents.Services;
 using Orchard.ContentTypes.Editors;
-using Orchard.Core.XmlRpc;
 using Orchard.Data.Migration;
 using Orchard.Feeds;
+using Orchard.JsonApi;
 using Orchard.Lists.Drivers;
 using Orchard.Lists.Feeds;
 using Orchard.Lists.Indexes;
@@ -41,6 +41,9 @@ namespace Orchard.Lists
             services.AddScoped<IFeedQueryProvider, ListFeedQuery>();
             services.AddScoped<IContentPartDisplayDriver, ListPartFeedDisplayDriver>();
             services.AddScoped<IContentPartHandler, ListPartFeedHandler>();
+
+            services.AddScoped<IApiPartDriver, ListPartApiPartDriver>();
+            services.AddScoped<IContentApiFilter, ListPartContentApiFilter>();
         }
 
         public override void Configure(IApplicationBuilder app, IRouteBuilder routes, IServiceProvider serviceProvider)

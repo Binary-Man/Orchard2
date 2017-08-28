@@ -4,7 +4,6 @@ using Microsoft.AspNetCore.Modules;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.DependencyInjection;
 using Orchard.ContentManagement;
-using Orchard.ContentManagement.Api;
 using Orchard.ContentManagement.Display;
 using Orchard.ContentManagement.Display.ContentDisplay;
 using Orchard.ContentManagement.Handlers;
@@ -21,6 +20,7 @@ using Orchard.DisplayManagement.Descriptors;
 using Orchard.Environment.Navigation;
 using Orchard.Feeds;
 using Orchard.Indexing;
+using Orchard.JsonApi;
 using Orchard.Lists.Settings;
 using Orchard.Recipes;
 using Orchard.Scripting;
@@ -114,17 +114,24 @@ namespace Orchard.Contents
             );
 
             routes.MapAreaRoute(
-                name: "Api_Self_Route",
+                name: "Api_ContentType_Route",
                 areaName: "Orchard.Contents",
-                template: "Api/ContentItems/{contentItemId}",
-                defaults: new { controller = "Api", action = "Get" }
+                template: "api/{contentType}",
+                defaults: new { controller = "Api", action = "GetByContentType" }
             );
 
             routes.MapAreaRoute(
-                name: "Api_Self_Route_Version",
+                name: "Api_ContentType_Id_Route",
                 areaName: "Orchard.Contents",
-                template: "Api/ContentItems/{contentItemId}/{versionOptions}",
-                defaults: new { controller = "Api", action = "GetByVersion" }
+                template: "api/{contentType}/{contentItemId}",
+                defaults: new { controller = "Api", action = "GetByContentTypeAndId" }
+            );
+
+            routes.MapAreaRoute(
+                name: "Api_Content_By_Relationship_Route",
+                areaName: "Orchard.Contents",
+                template: "api/{contentType}/{contentItemId}/relationships/{nestedContentType}",
+                defaults: new { controller = "Api", action = "GetByContentByRelationship" }
             );
         }
     }
