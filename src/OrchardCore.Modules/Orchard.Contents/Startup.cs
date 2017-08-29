@@ -114,23 +114,23 @@ namespace Orchard.Contents
             );
 
             routes.MapAreaRoute(
-                name: "Api_ContentType_Route",
+                name: "Api.GetContents.ByType",
                 areaName: "Orchard.Contents",
-                template: "api/{contentType}",
+                template: "Api/Contents/{contentType}",
                 defaults: new { controller = "Api", action = "GetByContentType" }
             );
 
             routes.MapAreaRoute(
-                name: "Api_ContentType_Id_Route",
+                name: "Api.GetContents.ByTypeAndId",
                 areaName: "Orchard.Contents",
-                template: "api/{contentType}/{contentItemId}",
+                template: "Api/Contents/{contentType}/{contentItemId}",
                 defaults: new { controller = "Api", action = "GetByContentTypeAndId" }
             );
 
             routes.MapAreaRoute(
-                name: "Api_Content_By_Relationship_Route",
+                name: "Api.GetContents.ByRelationship",
                 areaName: "Orchard.Contents",
-                template: "api/{contentType}/{contentItemId}/relationships/{nestedContentType}",
+                template: "Api/Contents/{contentType}/{contentItemId}/relationships/{nestedContentType}",
                 defaults: new { controller = "Api", action = "GetByContentByRelationship" }
             );
         }

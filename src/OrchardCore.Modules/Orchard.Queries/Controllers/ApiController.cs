@@ -39,7 +39,9 @@ namespace Orchard.Queries.Controllers
                 return NotFound();
             }
 
-            var queryParameters = JsonConvert.DeserializeObject<Dictionary<string, object>>(parameters ?? "");
+            var queryParameters = parameters != null ?
+                JsonConvert.DeserializeObject<Dictionary<string, object>>(parameters)
+                : new Dictionary<string, object>();
 
             var result = await _queryManager.ExecuteQueryAsync(query, queryParameters);
 
